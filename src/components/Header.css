@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #282c34;
+    color: white;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+/* prevent visited state color change */
+.logo:visited {
+    color: white;
+}
+
+.logo:hover,
+.logo:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links .nav-button {
+    margin-left: 1rem;
+    color: white;
+    text-decoration: none;
+    background: #61dafb;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-links .nav-button:hover {
+    background: #21a1f1;
+}
