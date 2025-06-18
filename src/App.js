@@ -7,6 +7,11 @@ import SignupPage from './pages/SignupPage';
 import './App.css';
 import ProfilePage from './pages/ProfilePage';
 
+import ItemDetailPage from './pages/ItemDetailPage';
+
+
+
+
 
 
 function App() {
@@ -19,6 +24,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/items/:id" element={<ItemDetailPage />} />
         </Routes>
       </main>
     </Router>
