@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import './PageStyles.css';
+import './LoginPage.css';
 
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
@@ -20,15 +20,15 @@ const LoginPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', 
-        body: JSON.stringify({ identifier, password })
+        credentials: 'include',
+        body: JSON.stringify({ identifier, password }),
       });
 
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.message || 'Login failed');
       localStorage.setItem('accessToken', data.accessToken);
-      login(data.accessToken); 
+      login(data.accessToken);
       navigate('/profile');
     } catch (err) {
       setError(err.message);
@@ -36,9 +36,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <h2>Login</h2>
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="login-page-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
         <input
           type="text"
           placeholder="Username or Email"
@@ -53,7 +53,7 @@ const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
       </form>
     </div>

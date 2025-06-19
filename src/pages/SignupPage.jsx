@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import './PageStyles.css';
+import { useNavigate } from 'react-router-dom';
+import './SignupPage.css';
 
 const SignupPage = () => {
+    const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -36,6 +38,9 @@ const SignupPage = () => {
 
       if (response.ok) {
         setMessage('Signup successful!');
+         setTimeout(() => {
+          navigate('/login'); 
+        }, 1500);
       } else {
         setMessage(data.message || 'Signup failed.');
       }
@@ -48,9 +53,9 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <h2>Sign Up</h2>
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="signup-page-container">
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <h2>Sign Up</h2>
         <input
           type="text"
           name="username"

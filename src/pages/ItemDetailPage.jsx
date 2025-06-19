@@ -1,6 +1,6 @@
-// pages/ItemDetailPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './ItemDetailPage.css';
 
 const ItemDetailPage = () => {
   const { id } = useParams();
@@ -20,14 +20,22 @@ const ItemDetailPage = () => {
       });
   }, [id]);
 
-  if (loading) return <p>Loading item...</p>;
-  if (!item) return <p>Item not found.</p>;
+  if (loading) return <div className="item-detail-container"><p>Loading item...</p></div>;
+  if (!item) return <div className="item-detail-container"><p>Item not found.</p></div>;
 
   return (
-    <div className="page-container">
-      <h2>{item.title}</h2>
-      <img src={item.image || 'https://via.placeholder.com/300'} alt={item.title} />
-      <p>{item.description}</p>
+    <div className="item-detail-container">
+      <div className="item-card-detail">
+        <img
+          src={item.image || '/images/camera.png'}
+          alt={item.title}
+          onError={(e) => (e.target.src = '/images/camera.png')}
+        />
+        <div className="item-info">
+          <h2>{item.title}</h2>
+          <p className="item-description">{item.description}</p>
+        </div>
+      </div>
     </div>
   );
 };
