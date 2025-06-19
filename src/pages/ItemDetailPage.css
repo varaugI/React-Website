@@ -2,60 +2,125 @@
   max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
-  background-color: #f9fafc;
+  background-color: #f3f4f6;
 }
 
-.item-card-detail {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+.item-detail-card {
+  background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  position: relative;
   overflow: hidden;
 }
 
-.item-card-detail img {
+.dropdown-top-right {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.dropdown-top-right button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  min-width: 140px;
+  z-index: 10;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.dropdown-menu li:hover {
+  background-color: #f9f9f9;
+}
+
+.item-detail-card img {
   width: 100%;
   height: auto;
   max-height: 400px;
-  object-fit: cover;
-}
-
-.item-info {
-  padding: 1.5rem;
+  object-fit: contain;
+  margin: 1rem 0;
+  border-radius: 8px;
 }
 
 .item-info h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  color: #222;
 }
 
 .item-description {
-  font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
 }
 
-/* Optional: Responsive */
-@media (min-width: 768px) {
-  .item-card-detail {
-    flex-direction: row;
-  }
-
-  .item-card-detail img {
-    width: 50%;
-    height: 100%;
-  }
-
-  .item-info {
-    width: 50%;
-  }
+.card-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid #eee;
 }
 
+.card-actions button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
 
-.grid-container::after {
-  content: "";
-  display: table;
-  clear: both;
+.comment-section {
+  margin-top: 2rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.comment-section h4 {
+  margin-bottom: 0.8rem;
+}
+
+.comment-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.comment-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.no-comments {
+  color: #777;
+  font-style: italic;
+}
+
+.comment-item {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
 }
